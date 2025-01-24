@@ -1,10 +1,11 @@
 import sys
+from src.logger import logging
 
 def error_message_detail(error, error_detail:sys):
     _ ,_ ,exc_tb = error_detail.exc_info()
     filename = exc_tb.tb_frame.f_code.co_filename
     linenum = exc_tb.tb_lineno
-    error_message = f"Error ocured in python script name {filename} line number {linenum} 
+    error_message = f"Error ocured in python script name {filename} line number {linenum} \
     error message {str(error)}"
 
     return error_message
