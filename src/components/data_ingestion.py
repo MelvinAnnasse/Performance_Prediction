@@ -28,6 +28,10 @@ class DataIngestion:
             logging.info("Reading the data")
             df = pd.read_csv('notebook\data\stud_perf.csv')
 
+            # Replace spaces with underscores in column names
+            df.columns = df.columns.str.replace(" ", "_")
+            df.columns = df.columns.str.replace("/", "_")
+
             logging.info("Creating Artifacts folder")
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path), exist_ok=True)
 
